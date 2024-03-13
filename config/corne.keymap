@@ -25,8 +25,11 @@ Key positions:
 #define NAVNUM 1
 #define SYM 2
 
-ZMK_COMBO( z,      &kp Z,        1   2, DEF)   
-ZMK_COMBO( q,      &kp Q,       31  32, DEF)   
+ZMK_COMBO( z,      &kp Z,        1   2, DEF)
+ZMK_COMBO( q,      &kp Q,       31  32, DEF)
+ZMK_COMBO(aa,      &dk_aa,       7  19, DEF)
+ZMK_COMBO(ae,      &dk_ae,      19  20, DEF)
+ZMK_COMBO(oe,      &dk_Oe,      20  32, DEF)
 
 ZMK_LAYER(default_layer,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
