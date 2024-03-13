@@ -10,54 +10,60 @@
 
 // Layer aliases
 #define DEF 0
-#define NAV 1
-#define GME 2
+#define NAVNUM 1
+#define SYM 2
+#define GME 3
 
 #include "combos.dtsi"
 
-/ {
-        keymap {
-                compatible = "zmk,keymap";
-
-                default_layer {
 // -----------------------------------------------------------------------------------------
-// |  ESC |  J  |  G  |  M  |  P  |  V  |   |  ;  |  .   |  /  |  "  |  '  | BKSP |
-// | CTRL |  R  |  S  |  N  |  D  |  B  |   |  ,  |  A   |  E  |  I  |  H  |  Q   |
-// | SHFT |  X  |  F  |  L  |  C  |  W  |   |  -  |  U   |  O  |  Y  |  K  |  Z   |
-//                    |  T  | LWR | TAB |   | ENT | SPC  | RSE |
-                        bindings = <
-   &kp ESC   &kp J &kp G &kp M &kp P &kp V     &kp SEMI  &kp DOT   &kp SLASH  &kp DQT &kp SQT &kp BSPC
-   &kp LCTRL &kp R &kp S &kp N &kp D &kp B     &kp COMMA &kp A     &kp E      &kp I   &kp H   &kp Q
-   &kp LSHFT &kp X &kp F &kp L &kp C &kp W     &kp N     &kp U     &kp O      &kp Y   &kp K   &kp Z
-                         &kp T &mo 1 &kp TAB   &kp RET   &kp SPACE &mo 2
-                        >;
-                };
-                lower_layer {
+// |  TAB |  J  |  G  |  M  |  P  |  V  |   |  ;  |  .   |  /  |  "  |  '  | BKSP |
+// | CTRL |  R  |  S  |  N  |  D  |  B  |   |  ,  |  A   |  E  |  I  |  H  | GUI  |
+// | SHFT |  X  |  F  |  L  |  C  |  W  |   |  -  |  U   |  O  |  Y  |  K  | ESC  |
+//                    |  T  | LWR | ALT |   | ENT | SPC  | RSE |
 // -----------------------------------------------------------------------------------------
 // |  ESC | MENU| END | UP  |PG_UP|HOME |   |  :  |  7  |  8  |  9  |  *  | BKSP |
 // | CTRL | INS |LEFT |DOWN |RIGHT|PG_DN|   |  _  |  4  |  5  |  6  |  +  |  =   |
 // | SHFT | CUT | COPY|PASTE| UNDO| REDO|   |  0  |  1  |  2  |  3  |  -  |  /   |
-//                    | GUI |     | TAB |   | ENT | SPC |     |
-                        bindings = <
-   &kp ESC    &kp K_MENU &kp END    &kp UP      &kp PG_UP  &kp HOME   &kp COLON &kp N7 &kp N8 &kp N9 &kp KP_MULTIPLY &kp BSPC
-   &bt LCTRL  &kp INS    &kp LEFT   &kp DOWN    &kp RIGHT  &kp PG_DN  &kp UNDER &kp N4 &kp N5 &kp N6 &kp PLUS        &kp EQUAL
-   &kp LSHFT  &kp K_CUT  &kp K_COPY &kp K_PASTE &kp K_UNDO &kp K_REDO &kp N0    &kp N1 &kp N2 &kp N3 &kp MINUS       &kp SLASH
-                               &kp LGUI     &trans       &kp TAB      &kp RET  &kp SPACE   &trans
-                        >;
-                };
-
-                raise_layer {
+//                    |     |     | TAB |   | ENT | SPC |     |
 // -----------------------------------------------------------------------------------------
-// |  ESC |  !  |  @  |  #  |   $  |  %  |   |  ^ | &  |  (  |  )  |     |  DEL |
-// | CTRL | "|" |  ~  |  ´  |   €  | VOL+|   |    |    |  [  |  ]  |  <  |  >   |
-// | SHFT | PREV|PLAY |NEXT |MUTE  | VOL-|   |PCRN|    |  {  |  }  |  \  |  ?   |
-//                    | GUI |      | TAB |   | ENT| SPC|     |
-                        bindings = <
-   &kp  ESC  &kp EXCL &kp AT     &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET &kp AMPS  &kp LPAR  &kp RPAR  &trans   &kp DEL
-   &kp LCTRL &kp PIPE &kp TILDE  &kp GRAVE  &trans     &kp K_VOL_UP &trans    &trans    &kp LBRKT &kp RBRKT &kp LT   &kp GT
-   &kp LSHFT &kp K_PREV &kp K_PP &kp K_NEXT &kp K_MUTE &kp K_VOL_DN &kp PSCRN &trans    &kp LBRC  &kp RBRC  &kp BSLH &kp QMARK
-                             &kp LGUI &trans   &kp TAB   &kp RET   &trans
-                        >;
-                };
-        };
-};
+// |  ESC |  !  |  @  |  #  |   $  |  %  |   |  ^ | &   |  (  |  )  |     |  DEL |
+// | CTRL | "|" |  ~  |  ´  |   €  | VOL+|   |    |     |  [  |  ]  |  <  |  >   |
+// | SHFT | PREV|PLAY |NEXT |MUTE  | VOL-|   |PCRN|     |  {  |  }  |  \  |  ?   |
+//                    |     |      | TAB |   | ENT| SPC |     |
+
+ZMK_LAYER(DEF,
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    &kp TAB       &kp J         &kp G         &kp M         &kp P         &kp V             &kp SEMI      &kp DOT       &kp SLASH     &kp DQT       &kp SQT       &kp BSPC
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
+    &kp LCTRL     &kp R         &kp S         &kp N         &kp D         &kp B             &kp COMMA     &kp A         &kp E         &kp I         &kp H         &kp GUI
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
+    &kp LSHFT     &kp X         &kp F         &kp L         &kp C         &kp W             &kp N         &kp U         &kp O         &kp Y         &kp K         &kp ESC
+//╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
+                                              &kp T         &mo 1         &kp LALT          &kp RET       &kp SPACE     &mo 2
+//                                          ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+)
+
+ZMK_LAYER(NAVNUM,
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    &kp TAB       &kp K_MENU    &kp END       &kp UP        &kp PG_UP     &kp HOME          &kp COLON     &kp N7        &kp N8        &kp N9        &kp KP_MULTIPLY &kp BSPC
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
+    &bt LCTRL     &kp INS       &kp LEFT      &kp DOWN      &kp RIGHT     &kp PG_DN         &kp UNDER     &kp N4        &kp N5        &kp N6        &kp PLUS      &kp EQUAL
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
+    &kp LSHFT     &kp K_CUT     &kp K_COPY    &kp K_PASTE   &kp K_UNDO    &kp K_REDO        &kp N0        &kp N1        &kp N2        &kp N3        &kp MINUS     &kp SLASH
+//╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
+                                              &trans        &trans        &kp LALT          &kp RET       &kp SPACE     &trans
+//                                          ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+)
+
+ZMK_LAYER(SYM,
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    &kp  TAB      &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT         &kp CARET     &kp AMPS      &kp LPAR      &kp RPAR      &trans        &kp DEL
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
+    &kp LCTRL     &kp PIPE      &kp TILDE     &kp GRAVE     &trans        &kp K_VOL_UP      &trans        &trans        &kp LBRKT     &kp RBRKT     &kp LT        &kp GT
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
+    &kp LSHFT     &kp K_PREV    &kp K_PP      &kp K_NEXT    &kp K_MUTE    &kp K_VOL_DN      &kp PSCRN     &trans        &kp LBRC      &kp RBRC     &kp BSLH       &kp QMARK
+//╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
+                                              &trans        &trans         &kp LALT         &kp RET       &kp SPACE     &trans
+//                                          ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+)
