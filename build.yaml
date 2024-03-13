@@ -24,8 +24,8 @@ include:
   - board: nice_nano_v2
     shield: corne_left
     with:
-      submodules: recursvie
+      submodules: recursive
   - board: nice_nano_v2
     shield: corne_right
     with:
-      submodules: recursvie
+      submodules: recursive
