@@ -20,32 +20,6 @@ Key positions:
 
 // Layer aliases
 #define DEF 0
-#define NAVNUM 1
-#define SYM 2
-#define GME 3
-
-
-ZMK_COMBO( z,      &kp Z,        1   2, DEF)   
-ZMK_COMBO( q,      &kp Q,       31  32, DEF)   
-ZMK_COMBO(aa,      &dk_aa,       7  19, DEF)
-ZMK_COMBO(ae,      &dk_ae,      19  20, DEF)
-ZMK_COMBO(oe,      &dk_Oe,      20  32, DEF)
-
-// -----------------------------------------------------------------------------------------
-// |  TAB |  J  |  G  |  M  |  P  |  V  |   |  ;  |  .   |  /  |  "  |  '  | BKSP |
-// | CTRL |  R  |  S  |  N  |  D  |  B  |   |  ,  |  A   |  E  |  I  |  H  | GUI  |
-// | SHFT |  X  |  F  |  L  |  C  |  W  |   |  -  |  U   |  O  |  Y  |  K  | ESC  |
-//                    |  T  | LWR | ALT |   | ENT | SPC  | RSE |
-// -----------------------------------------------------------------------------------------
-// |  ESC | MENU| END | UP  |PG_UP|HOME |   |  :  |  7  |  8  |  9  |  *  | BKSP |
-// | CTRL | INS |LEFT |DOWN |RIGHT|PG_DN|   |  _  |  4  |  5  |  6  |  +  |  =   |
-// | SHFT | CUT | COPY|PASTE| UNDO| REDO|   |  0  |  1  |  2  |  3  |  -  |  /   |
-//                    |     |     | TAB |   | ENT | SPC |     |
-// -----------------------------------------------------------------------------------------
-// |  ESC |  !  |  @  |  #  |   $  |  %  |   |  ^ | &   |  (  |  )  |     |  DEL |
-// | CTRL | "|" |  ~  |  ´  |   €  | VOL+|   |    |     |  [  |  ]  |  <  |  >   |
-// | SHFT | PREV|PLAY |NEXT |MUTE  | VOL-|   |PCRN|     |  {  |  }  |  \  |  ?   |
-//                    |     |      | TAB |   | ENT| SPC |     |
 
 ZMK_LAYER(default_layer,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
