@@ -23,6 +23,7 @@
         compatible = "zmk,combos";
 
 COMBO( z,      &kp Z,        1   2, DEF,          80,  50)   
+COMBO( q,      &kp Q,       31   2, DEF,          80,  50)   
 COMBO(aa,      &dk_aa,       7  19, DEF,          80,  50)
 COMBO(ae,      &dk_ae,      19  20, DEF,          80,  50)
 COMBO(oe,      &dk_Oe,      20  32, DEF,          80,  50)
