@@ -17,15 +17,8 @@
 #     artifact-name: corne_left_with_logging
 #
 ---
-- name: Initialize submodules
-  run: git submodule update --init --recursive
-
 include:
   - board: nice_nano_v2
     shield: corne_left
-    with:
-      submodules: recursive
   - board: nice_nano_v2
     shield: corne_right
-    with:
-      submodules: recursive
