@@ -18,6 +18,8 @@ Key positions:
 #include "../zmk-nodefree-config/keypos_def/keypos_42keys.h"
 #include "../zmk-nodefree-config/international_chars/danish.dtsi"
 
+#define ___ &trans
+
 // Layer aliases
 #define DEF 0
 #define NAVNUM 1
@@ -37,12 +39,12 @@ ZMK_LAYER(default_layer,
 
 ZMK_LAYER(navigation_numeric_layer,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp TAB       &kp K_MENU    &kp END       &kp UP        &kp PG_UP     &kp HOME          &kp COLON     &kp N7        &kp N8        &kp N9        &kp KP_MULTIPLY &kp BSPC
+    &kp TAB       ___           &kp END       &kp UP        &kp PG_UP     &kp HOME          &kp COLON     &kp N7        &kp N8        &kp N9        &kp KP_MULTIPLY &kp BSPC
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
     &bt LCTRL     &kp INS       &kp LEFT      &kp DOWN      &kp RIGHT     &kp PG_DN         &kp UNDER     &kp N4        &kp N5        &kp N6        &kp PLUS      &kp EQUAL
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
-    &kp LSHFT     &kp K_CUT     &kp K_COPY    &kp K_PASTE   &kp K_UNDO    &kp K_REDO        &kp N0        &kp N1        &kp N2        &kp N3        &kp MINUS     &kp SLASH
+    &kp LSHFT     ___           ___           ___           ___           ___               &kp N0        &kp N1        &kp N2        &kp N3        &kp MINUS     &kp SLASH
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              &trans        &trans        &kp LALT          &kp RET       &kp SPACE     &trans
+                                              ___           ___          &kp LALT           &kp RET       &kp SPACE     ___
 //                                          ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
