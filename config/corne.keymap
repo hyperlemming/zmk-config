@@ -24,32 +24,37 @@ Key positions:
 #define DEF 0
 #define NAVNUM 1
 #define SYM 2
+#define QWE 3
+
+&led_strip {
+    chain-length = <27>;
+};
 
 ZMK_COMBO( z,      &kp Z,        1   2, DEF)
-ZMK_COMBO( q,      &kp Q,       31  32, DEF)
+ZMK_COMBO( q,      &kp Q,         7  8, DEF)
 ZMK_COMBO(aa,      &dk_aa,       7  19, DEF)
 ZMK_COMBO(ae,      &dk_ae,      19  20, DEF)
 ZMK_COMBO(oe,      &dk_oe,      20  32, DEF)
 
 ZMK_LAYER(default_layer,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp TAB       &kp J         &kp G         &kp M         &kp P         &kp V             &kp MINUS        &kp U         &kp O         &kp Y         &kp K         &kp BSPC
+    &kp TAB       &kp J         &kp G         &kp M         &kp P         &kp V             &kp MINUS     &kp U         &kp O         &kp Y         &kp K         &kp BSPC
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
-    &kp LCTRL     &kp R         &kp S         &kp N         &kp D         &kp B             &kp COMMA     &kp A         &kp E         &kp I         &kp H         &kp GUI
+    &kp LCTRL     &kp R         &kp S         &kp N         &kp D         &kp B             &kp COMMA     &kp A         &kp E         &kp I         &kp H         &kp LMETA
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
-    &kp LSHFT     &kp X         &kp F         &kp L         &kp C         &kp W             &kp SEMI      &kp DOT       &kp SLASH     &kp DQT       &kp SQT        &kp ESC
+    &kp LSHFT     &kp X         &kp F         &kp L         &kp C         &kp W             &kp SEMI      &kp DOT       &kp SLASH     &kp DQT       &kp SQT       &kp ESC
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               &mo 1         &kp T         &kp LALT          &kp RET       &kp SPACE     &mo 2
 //                                          ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
 
-ZMK_LAYER(navigation_numeric_layer,
+ZMK_LAYER(navigation_numpad_layer,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp TAB       &kp K_MENU    &kp END       &kp UP        &kp PG_UP     &kp HOME          &kp COLON     &kp N7        &kp N8        &kp N9        &kp KP_MULTIPLY &kp BSPC
+    &kp TAB       &kp LGUI      &kp HOME       &kp UP       &kp END      &kp PG_UP          &kp COLON     &kp N7        &kp N8        &kp N9        &kp KP_MULTIPLY &kp BSPC
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
     &kp LCTRL     &kp INS       &kp LEFT      &kp DOWN      &kp RIGHT     &kp PG_DN         &kp UNDER     &kp N4        &kp N5        &kp N6        &kp PLUS      &kp EQUAL
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
-    &kp LSHFT     &kp K_CUT     &kp K_COPY    &kp K_PASTE   &kp K_UNDO    &kp K_REDO        &kp N0        &kp N1        &kp N2        &kp N3        &kp MINUS     &kp SLASH
+    &kp LSHFT     &kp LC(X)     &kp LC(INS)   &kp LS(INS)   &kp LC(Z)     &kp LC(Y)         &kp N0        &kp N1        &kp N2        &kp N3        &kp MINUS     &kp SLASH
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               ___           ___           &kp LALT          &kp RET       &kp SPACE     ___
 //                                          ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
@@ -58,12 +63,29 @@ ZMK_LAYER(navigation_numeric_layer,
 
 ZMK_LAYER(symbolic_layer,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp  TAB      &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT          &kp CARET     &kp AMPS      &kp LPAR      &kp RPAR      ___          &kp DEL
+    &kp  TAB      &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT         &kp CARET     &kp AMPS      &kp LPAR      &kp RPAR      ___           &kp DEL
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
-    &kp LCTRL     &kp PIPE      &kp TILDE     &kp GRAVE     ___           &kp K_VOL_UP       ___           ___           &kp LBKT      &kp RBKT      &kp LT        &kp GT
+    &kp LCTRL     &kp PIPE      &kp TILDE     &kp GRAVE     ___           &kp C_VOL_UP      ___           ___           &kp LBKT      &kp RBKT      &kp LT        &kp GT
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
-   &kp LSHFT     &kp K_PREV    &kp K_PP      &kp K_NEXT    &kp K_MUTE    &kp K_VOL_DN        &kp PSCRN     ___           &kp LBRC      &kp RBRC      &kp BSLH      &kp QMARK
+    &kp LSHFT     &kp C_PREV    &kp C_PP      &kp C_NEXT    &kp C_MUTE    &kp C_VOL_DN      &kp PSCRN     ___           &kp LBRC      &kp RBRC      &kp BSLH      &kp QMARK
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                               ___           ___            &kp LALT         &kp RET       &kp SPACE     ___
+                                               ___           ___          &kp LALT          &kp RET       &kp SPACE     ___
 //                                          ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
+
+ZMK_LAYER(qwerty_layer,     
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    &kp ESC       &kp Q         &kp W         &kp E         &kp R         &kp T             &kp Y         &kp U         &kp I         &kp O         &kp P         &kp BSPC   
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
+    &kp LSHFT     &kp A         &kp S         &kp D         &kp F         &kp G             &kp H         &kp J         &kp K         &kp L         &kp SEMI      &kp RET
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ 
+    &kp LCTRL     &kp Z         &kp X         &kp C         &kp V         &kp B             &kp N         &kp M         &kp COMMA     &kp DOT       &kp SLASH     &kp RCTRL
+//╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
+                                              &kp LALT      &kp SPACE     &kp TAB           &kp LMETA     &kp SPACE     &kp RALT
+//                                          ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
+)       
+
+//Set both your thumb keys to be Shifts, when held
+
+// Even though I've been using HD for quite a while now, I still find I have to consciously think to use H-digraph combos. They make complete sense but HD is so comfy as is, I just don't feel the need.  For me, the exception is Qu where linger deletes U; that's absolutely brilliant. On reflection,  Th is working its way into my workflow.  If you read through this forum, you'll find quite a few HD veterans who don't bother with the add-ons.
+//Adaptives are another cognitive level up.  They remain interesting but problematic. If a particular bigram or two annoys you (PL?), and this is HD so we're talking low single digits here, a lot of folks just throw it on a convenient combo.
