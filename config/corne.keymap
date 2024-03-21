@@ -43,11 +43,12 @@ ZMK_BEHAVIOR(ss_cw, tap_dance,
     bindings = <&sk LSHFT>, <&caps_word>;
 )
 
-ZMK_BEHAVIOR(ht, hold_tap,
+//like layer-tap, but toggle tap instead
+ZMK_BEHAVIOR(tt, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <280>;
     quick-tap-ms = <125>;
-    bindings = <&kp>, <&tog>;
+    bindings = <&tog>, <&kp>;
 )
 
 ZMK_LAYER(default_layer,
